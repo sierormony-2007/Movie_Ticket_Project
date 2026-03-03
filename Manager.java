@@ -1,13 +1,19 @@
 
-public class Manager implements IStaff {
-    private String id;
-    private String username;
-    private String password;
+public class Manager extends Staff {
+    private float salary;
 
-    public Manager(String id, String username, String password) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
+    @Override
+    public boolean can(String action) {
+        // Managers can perform all actions
+        return true;
+    }
+        public Manager(Staff staff, float salary ) {
+
+        super(staff.getId(), staff.getUsername(), staff.getFullName(), staff.getPassword());
+        this.setSalary(salary);
+    }
+    public float getSalary() {
+        return salary;
     }
 
 
