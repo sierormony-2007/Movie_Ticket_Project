@@ -1,5 +1,6 @@
+package user;
 public class Manager extends Staff {
-    private float salary;
+    private float salary; 
 
     @Override
     public boolean can(String action){
@@ -7,8 +8,8 @@ public class Manager extends Staff {
     }
 
     // Constructor
-    public Manager(Staff staff, float salary){
-        super(staff.getStaffId(), staff.getuserName(), staff.getfullName(), staff.getpassword(), staff.getemail(), staff.getphone());
+    public Manager(Staff s, float salary){
+        super(s.getId(), s.getUsername(), s.getFullName(), s.getpassword(), s.getEmail(), s.getPhone());
         this.setSalary(salary);
     }
     public float getSalary() {
@@ -36,7 +37,7 @@ public class Manager extends Staff {
             return false;
         }
         Manager manager = (Manager) obj;
-        return this.getStaffId().equals(manager.getStaffId());
+        return this.getId().equals(manager.getId());
     }
 }
 

@@ -1,4 +1,4 @@
-
+package other;
 public class Showtime {
     private String time;
     private String date;

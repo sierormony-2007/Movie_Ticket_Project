@@ -1,5 +1,6 @@
+package user;
 
-public abstract class Staff implements IStaff {
+public class Staff implements IStaff {
     private String staffId;
     private String userName;
     private String password;
@@ -24,19 +25,24 @@ public boolean can(String action) {
         return password;
     }
 
-    public String getStaffId() {
+
+    public boolean isActive() {
+        return true;
+    }
+
+    public String getId() {
         return staffId;
     }
-    public String getuserName() {
+    public String getUsername() {
         return userName;
     }
-    public String getfullName() {
+    public String getFullName() {
         return fullName;
     }
-    public String getemail() {
+    public String getEmail() {
         return email;
     }
-    public String getphone() {
+    public String getPhone() {
         return phone;
     }
     public boolean checkPassword(String input) {

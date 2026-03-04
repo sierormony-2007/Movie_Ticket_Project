@@ -1,4 +1,13 @@
+package controller;
 import java.util.ArrayList;
+
+import other.Customer;
+import other.Movie;
+import other.Showtime;
+import other.Ticket;
+import user.IStaff;
+import user.Manager;
+import user.Staff;
 
 public class Cinema {
 
@@ -11,6 +20,8 @@ public class Cinema {
     public static final String CHECK_MOVIES = "CHECK_MOVIES";
     public static final String SELL_TICKET = "SELL_TICKET";
     public static final String CHECK_TICKET = "CHECK_TICKET";
+    public static final String CHECK_SHOWTIME = "CHECK_SHOWTIME";
+    public static final String DISPLAY_MOVIE = "DISPLAY_MOVIE";
 
     // =========================
     // BASIC INFO
@@ -22,7 +33,7 @@ public class Cinema {
     // =========================
     // DATA STORAGE (ArrayLists)
     // =========================
-    private ArrayList<IStaff> staffs = new ArrayList<>();
+    private ArrayList<Staff> staffs = new ArrayList<>();
     private ArrayList<Movie> movies = new ArrayList<>();
     private ArrayList<Showtime> showtimes = new ArrayList<>();
     private ArrayList<Ticket> tickets = new ArrayList<>();
@@ -52,8 +63,9 @@ public class Cinema {
     // =========================
     // DEFAULT ADMIN
     // =========================
-    private void seedDefaultAdmin() {
-        Manager admin = new Manager("S001", "Admin", "1234");
+    private void seedDefaultAdmin(){
+        Staff s1 = new Staff("1", "admin", "Admin User", "1234", "admin@cinema.com", "1234567890");
+        Manager admin = new Manager(s1, 5000);
         staffs.add(admin);
     }
 
@@ -71,7 +83,7 @@ public class Cinema {
 
             if (s.getUsername().equalsIgnoreCase(username.trim())) {
 
-                    if (!s.getPassword().equals(password)) {
+                    if (!s.checkPassword(password)) {
                         lastMessage = "Login failed: incorrect password.";
                         return;
                     }
