@@ -25,7 +25,7 @@ public boolean can(String action) {
         return password;
     }
 
-
+  @Override
     public boolean isActive() {
         return true;
     }
