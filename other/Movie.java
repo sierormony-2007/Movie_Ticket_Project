@@ -1,3 +1,4 @@
+package other;
 public class Movie{
    private  int movieId;
     private String title;

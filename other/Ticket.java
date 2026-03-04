@@ -1,4 +1,4 @@
-
+package other;
 public class Ticket {
     private int ticketId;
     private Movie movie;

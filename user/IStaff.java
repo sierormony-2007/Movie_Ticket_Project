@@ -1,3 +1,4 @@
+package user;
 
 public interface IStaff {
 
@@ -5,6 +6,7 @@ public interface IStaff {
     String getUsername();
     String getFullName();
     boolean isActive();
+    boolean checkPassword(String input);
     
     boolean can(String action);
 }
