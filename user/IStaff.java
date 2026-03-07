@@ -8,5 +8,6 @@ public interface IStaff {
     boolean isActive();
     boolean checkPassword(String input);
     
+    
     boolean can(String action);
 }

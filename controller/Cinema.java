@@ -1,6 +1,5 @@
 package controller;
 import java.util.ArrayList;
-
 import other.Customer;
 import other.Movie;
 import other.Showtime;
@@ -14,14 +13,31 @@ public class Cinema {
     // =========================
     // ACTION CONSTANTS
     // =========================
+
+    //Movie actions
     public static final String CREATE_MOVIE = "CREATE_MOVIE";
     public static final String UPDATE_MOVIE = "UPDATE_MOVIE";
     public static final String DELETE_MOVIE = "DELETE_MOVIE";
     public static final String CHECK_MOVIES = "CHECK_MOVIES";
+    public static final String DISPLAY_MOVIE = "DISPLAY_MOVIE";
+
+    //showtime actions
+    public static final String ADD_SHOWTIME = "ADD_SHOWTIME";
+    public static final String UPDATE_SHOWTIME = "UPDATE_SHOWTIME";
+    public static final String CHECK_SHOWTIME = "CHECK_SHOWTIME";
+    public static final String DELETE_SHOWTIME = "DELETE_SHOWTIME";
+    //Ticket actons
     public static final String SELL_TICKET = "SELL_TICKET";
     public static final String CHECK_TICKET = "CHECK_TICKET";
-    public static final String CHECK_SHOWTIME = "CHECK_SHOWTIME";
-    public static final String DISPLAY_MOVIE = "DISPLAY_MOVIE";
+    public static final String CANCEL_TICKET = "CANCEL_TICKET";
+    public static final String HANDLE_TICKET_ISSUE = "HANDLE_TICKET_ISSUE";
+    //System
+    public static final String HANDLE_SYSTEM = "HANDLE_SYSTEM";
+    
+    //manager
+    public static final String APPROVE_BUDGET = "APPROVE_BUDGET";
+    public static final String MANAGE_STAFF = "MANAGE_STAFF";
+    public static final String VIEW_FINANCIAL_REPORTS = "VIEW_FINANCIAL_REPORTS";
 
     // =========================
     // BASIC INFO

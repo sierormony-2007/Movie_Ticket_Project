@@ -49,32 +49,22 @@ public boolean can(String action) {
         return password != null && password.equals(input);
     }
     public void setStaffId(String staffId) {
-        if (staffId != null && !staffId.trim().isEmpty()) {
-            this.staffId = staffId;
-        } else {
-            System.out.println("Invalid Staff ID. It cannot be null or empty.");
-        }
+        if (isValidString(staffId)) this.staffId = "UNKNOWN";
+        else this.staffId = staffId.trim();
     }
     public void setUserName(String userName) {
-        if (userName != null && !userName.trim().isEmpty()) {
-            this.userName = userName;
-        } else {
-            System.out.println("Invalid username. It cannot be null or empty.");
-        }
+        if (isValidString(userName)) this.userName = "UNKNOWN";
+        else this.userName = userName.trim();
     }
     public void setFullName(String fullName) {
-        if (fullName != null && !fullName.trim().isEmpty()) {
-            this.fullName = fullName;
-        } else {
-            System.out.println("Invalid full name. It cannot be null or empty.");
-        }
+        if (isValidString(fullName)) this.userName = "UNKNOWN";
+        else this.fullName = fullName.trim();
     }
     public void setPassword(String password) {
-        if (password != null && !password.trim().isEmpty()) {
-            this.password = password;
-        } else {
-            System.out.println("Invalid password. It cannot be null or empty.");
-        }
+        String pw = (password == null) ? "" : password;
+        // simple rule for teaching: >= 4 chars
+        if (pw.length() < 4) this.password = "0000";
+        else this.password = pw;
     }
     public void setEmail(String email) {
         if (email != null && !email.trim().isEmpty()) {
@@ -84,11 +74,10 @@ public boolean can(String action) {
         }
     }
     public void setPhone(String phone) {
-        if (phone != null && !phone.trim().isEmpty()) {
-            this.phone = phone;
-        } else {
-            System.out.println("Invalid phone number. It cannot be null or empty.");
-        }
+        String p = (phone == null) ? "" : phone.trim();
+        // simple validation: only digits, length 8–15
+        if (!isDigit(p) || p.length() < 8 || p.length() > 15) this.phone = "00000000";
+        else this.phone = p;
     }
 
     private boolean isValidString(String str) {
