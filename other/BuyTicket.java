@@ -7,7 +7,7 @@ public class BuyTicket {
     private Customer customer;
     private static final double NORMAL_PRICE = 12;
     private static final double VIP_PRICE = 20;
-
+    
 
     public BuyTicket(){
        this(50);

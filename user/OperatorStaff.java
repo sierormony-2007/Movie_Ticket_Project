@@ -1,6 +1,18 @@
 package user;
+
+import controller.Cinema;
+
 public class OperatorStaff extends Staff {
     private float salary;
+
+
+    @Override
+    public boolean can(String action){
+        if(action.equals(Cinema.HANDLE_SYSTEM) || action.equals(Cinema.DISPLAY_MOVIE) || action.equals(Cinema.CHECK_TICKET)){
+            return true;
+        }
+            return false;
+    };
     public OperatorStaff(Staff staff, float salary) {
         super(staff.getId(), staff.getUsername(), staff.getFullName(), staff.getpassword(), staff.getEmail(), staff.getPhone());
         this.salary=salary;
@@ -38,5 +50,6 @@ public class OperatorStaff extends Staff {
                 "salary=" + salary +
                 '}';
     }
+
 
 }
