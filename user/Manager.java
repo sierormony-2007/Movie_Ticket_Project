@@ -1,4 +1,6 @@
 package user;
+
+
 public class Manager extends Staff {
     private float salary; 
 
