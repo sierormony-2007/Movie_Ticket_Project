@@ -1,7 +1,5 @@
 package controller;
 import java.util.ArrayList;
-import javax.swing.text.Position;
-import other.BuyTicket;
 import other.Customer;
 import other.Movie;
 import other.Showtime;
@@ -48,7 +46,7 @@ public class Cinema {
     private ArrayList<Movie> movies = new ArrayList<>();
     private ArrayList<Customer> customers = new ArrayList<>();
     private ArrayList<Showtime> showtimes = new ArrayList<>();
-    private ArrayList<BuyTicket> buyTickets = new ArrayList<>();
+    private ArrayList<Ticket> tickets = new ArrayList<>();
 
     // =========================
     // LOGIN
@@ -72,7 +70,7 @@ public class Cinema {
     @Override
     public String toString() {
         return "Cinema [cinemaName=" + cinemaName + ", address=" + address + ", staffs=" + staffs + ", customers="
-                + customers + ", showTimes=" + showtimes + ", BuyTicket=" + buyTickets + ", loggedInStaff=" + loggedInStaff
+                + customers + ", showTimes=" + showtimes + ",Ticket=" + tickets + ", loggedInStaff=" + loggedInStaff
                 + ", lastMessage=" + lastMessage + "]";
     }
     // getters / setters
@@ -94,7 +92,7 @@ public class Cinema {
     public boolean isStafffLoggedIn(){
         return loggedInStaff != null;
     }
-    public IStaff getLoggedInStaff(IStaff loggedInStaff) {
+    public IStaff getLoggedInStaff() {
         return  loggedInStaff;
     }
     public void setLastMessage(String lmsg) {
@@ -270,9 +268,10 @@ public class Cinema {
     int id = Integer.parseInt(ticketId);
     Customer customer = new Customer(customerName, "", false);
     double price = 100.0;
+    String ticketType = "Standard";
 
-    BuyTicket bt = new BuyTicket(id, movie, customer, price);
-    buyTickets.add(bt);
+    Ticket t = new Ticket (id, movie, customer, price, ticketType);
+    tickets.add(t);
 
     lastMessage = "Ticket sold successfully.";
 }
