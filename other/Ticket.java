@@ -2,16 +2,16 @@ package other;
 public class Ticket {
     private int ticketId;
     private Movie movie;
-    private double priceSnapshot;
+    // private double priceSnapshot;
     private String ticketType;
     private double price;
-    
+    private String issue;
     private static int ticketIDCounter = 0;
 
     public Ticket(int ticketId, Movie movie, Customer customer, double price, String ticketType){
         this.ticketId = ticketId;
         this.movie = movie;
-        this.priceSnapshot = price;
+        // this.priceSnapshot = price;
         this.ticketType = ticketType;
         ticketIDCounter++;  
     }
@@ -39,9 +39,9 @@ public class Ticket {
         }
     }
 
-    public double getPriceSnapshot() {
-        return priceSnapshot;
-    }
+    // public double getPriceSnapshot() {
+    //     return priceSnapshot;
+    // }
 
    
 
@@ -68,6 +68,13 @@ public class Ticket {
     public static int getTicketIDCounter() {
         return ticketIDCounter;
     }
+    public String getIssue(){
+        return issue;
+    }
+     public void setIssue(String issue) {
+        this.issue = issue;
+    }
+
     
 
 }
