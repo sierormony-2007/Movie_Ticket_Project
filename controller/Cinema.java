@@ -103,8 +103,7 @@ public class Cinema {
     // DEFAULT ADMIN
     // =========================
     private void setDefaultAdmin(){
-        Staff s1 = new Staff("1", "admin", "Admin User", "1234", "admin@cinema.com", "1234567890");
-        Manager admin = new Manager(s1, 5000);
+        Manager admin = new Manager("1", "admin", "Admin User", "1234", "admin@cinema.com", "1234567890");
         staffs.add(admin);
     }
 

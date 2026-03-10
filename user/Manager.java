@@ -4,15 +4,16 @@ package user;
 public class Manager extends Staff {
     private float salary; 
 
-    @Override
-    public boolean can(String action){
-        return true;
+   public Manager(String staffId, String userName, String fullName,
+                   String password, String email, String phone) {
+
+        super(staffId, userName, fullName, password, email, phone);
     }
 
-    // Constructor
-    public Manager(Staff s, float salary){
-        super(s.getId(), s.getUsername(), s.getFullName(), s.getpassword(), s.getEmail(), s.getPhone());
-        this.setSalary(salary);
+    @Override
+    public boolean can(String action) {
+
+        return true;
     }
     public float getSalary() {
         return salary;
