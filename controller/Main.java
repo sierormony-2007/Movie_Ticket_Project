@@ -1,7 +1,6 @@
 package controller;
 import java.util.Scanner;
 
-
 public class Main {
 
     public static void main(String[] args) {
@@ -69,7 +68,13 @@ public class Main {
                         int duration = sc.nextInt();
                         sc.nextLine();
 
-                        cinema.createMovie(movieId, title, duration);
+                        System.out.print("Release Date: ");
+                        String releaseDate = sc.nextLine();
+
+                        System.out.print("Genre: ");
+                        String genre = sc.nextLine();
+
+                        cinema.createMovie(movieId, title, duration, releaseDate, genre);
                         System.out.println(cinema.getLastMessage());
                         break;
                     }

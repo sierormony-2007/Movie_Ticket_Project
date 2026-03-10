@@ -7,11 +7,12 @@ public class Movie{
     private String genre;
     
 
-    public Movie(int movieId, String title, double duration, String releaseDate){
+    public Movie(int movieId, String title, double duration, String releaseDate, String genre){
         this.movieId = movieId;
         this.title = title;
         this.duration = duration;
         this.releaseDate = releaseDate;
+        this.genre = genre;
     }
 
     public int getMovieId() {
@@ -41,5 +42,8 @@ public class Movie{
 
     public String getReleaseDate() {
         return releaseDate;
+    }
+    public String getGenre(){
+        return genre;
     }
 }

@@ -160,7 +160,7 @@ public class Cinema {
 
     // CREATE MOVIE
 
-    public void createMovie(String movieId, String title, int duration) {
+    public void createMovie(String movieId, String title, int duration,String releaseDate, String genre) {
 
         if (!requireLogin()) return;
 
@@ -176,7 +176,7 @@ public class Cinema {
             return;
         }
 
-        movies.add(new Movie(Integer.parseInt(movieId), title, (double) duration, ""));
+        movies.add(new Movie(Integer.parseInt(movieId), title, (double) duration, releaseDate, genre));
         lastMessage = "Movie created successfully.";
         }
     //CHECK MOVIE
