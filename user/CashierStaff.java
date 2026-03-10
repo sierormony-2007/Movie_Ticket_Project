@@ -6,15 +6,25 @@ public class CashierStaff extends Staff {
 
     private float salary;
 
+    public CashierStaff(String staffId, String userName, String fullName,
+                        String password, String email, String phone) {
+        super(staffId, userName, fullName, password, email, phone);
+    }
+
     @Override
-    public boolean can(String action){
-        if(action.equals(Cinema.CHECK_MOVIES) || action.equals(Cinema.SELL_TICKET) || action.equals(Cinema.CHECK_TICKET) || action.equals(Cinema.CANCEL_TICKET) || action.equals(Cinema.HANDLE_TICKET_ISSUE) || action.equals(Cinema.CREATE_CUSTOMER)){
+    public boolean can(String action) {
+
+        if (action.equals("SELL_TICKET") ||
+            action.equals("CANCEL_TICKET") ||
+            action.equals("CHECK_TICKET") ||
+            action.equals("CREATE_CUSTOMER") ||
+            action.equals("HANDLE_TICKET_ISSUE") ||
+            action.equals("CHECK_MOVIES")) {
+
             return true;
-        }return false;
-    };
-    public CashierStaff(Staff staff1,float salary) {
-        super(staff1.getId(), staff1.getUsername(), staff1.getFullName(), staff1.getpassword(), staff1.getEmail(), staff1.getPhone ());
-        this.salary = salary;
+        }
+
+        return false;
     }
     public float getSalary() {
         return salary;
