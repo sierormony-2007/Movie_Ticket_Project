@@ -2,9 +2,6 @@ package user;
 
 public class OperatorStaff extends Staff {
 
-
-
-  
     public OperatorStaff(Staff s) {
         super(s.getId(), s.getUsername(), s.getFullName(), s.getpassword(), s.getEmail(), s.getPhone(), s.getSalary());
     }
@@ -21,21 +18,27 @@ public class OperatorStaff extends Staff {
 
         return false;
     }
-     @Override
+    @Override
     public boolean equals(Object obj){
+
+        if (this == obj) {
+            return true;
+        }
+
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+
         OperatorStaff other = (OperatorStaff) obj;
 
         if(!super.equals(obj)){
             return false;
         }
-        else{
-            // if(Float.floatToIntBits(salary != Float.floatToIntBits(other.salary))){
-            //     return false;
-            // }
-            if (this.getSalary() != other.getSalary()) {
+
+        if (this.getSalary() != other.getSalary()) {
             return false;
-}
         }
+
         return true;
     }
     @Override

@@ -7,14 +7,12 @@ public abstract class Staff implements IStaff {
     private String fullName;
     private String email;
     private String phone;
-    private float salary;
+    private double salary;
 
 @Override
-public boolean can(String action) {
-    return false;
-}
+public abstract boolean can(String action);
 
-    public Staff(String staffId, String userName, String fullName, String password, String email, String phone, float salary) {
+    public Staff(String staffId, String userName, String fullName, String password, String email, String phone, double salary) {
         setStaffId(staffId);
         setUserName(userName);
         setFullName(fullName);
@@ -48,7 +46,7 @@ public boolean can(String action) {
     public String getPhone() {
         return phone;
     }
-    public float getSalary(){
+    public double getSalary(){
         return salary;
     }
     public boolean checkPassword(String input) {
@@ -63,7 +61,7 @@ public boolean can(String action) {
         else this.userName = userName.trim();
     }
     public void setFullName(String fullName) {
-        if (!isValidString(fullName)) this.userName = "UNKNOWN";
+        if (!isValidString(fullName)) this.fullName = "UNKNOWN";
         else this.fullName = fullName.trim();
     }
     public void setPassword(String password) {
@@ -80,7 +78,7 @@ public boolean can(String action) {
         }
     }
 
-   public void setSalary(float salary) {
+   public void setSalary(double salary) {
        if (salary < 0)
          this.salary = 0;
     else
@@ -111,12 +109,13 @@ public boolean can(String action) {
     @Override
     public String toString() {
         return "Staff{" +
-                "StaffId='" + staffId + '\'' +
-                ", UserName='" + userName + '\'' +
-                ", FullName='" + fullName + '\'' +
-                ", email='" + email + '\'' +
-                ", Phone='" + phone + '\'' +
-                '}';
+        "StaffId='" + staffId + '\'' +
+        ", UserName='" + userName + '\'' +
+        ", FullName='" + fullName + '\'' +
+        ", email='" + email + '\'' +
+        ", Phone='" + phone + '\'' +
+        ", salary=" + salary +
+        '}';
     }
     @Override
     public boolean equals(Object obj) {

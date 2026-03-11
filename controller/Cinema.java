@@ -56,19 +56,12 @@ public class Cinema {
     // FEEDBACK MESSAGE
 
     private String lastMessage = "";
-
-
-
-
-
-
-
     // CONSTRUCTOR
     // =========================
     public Cinema(String cinemaName, String address) {
         setCinemaName(cinemaName);
         setAddress(address);
-        setDefaultAdmin();
+
         lastMessage = "Cinema created. Default admin: admin / 1234";
     }
     @Override
@@ -102,27 +95,12 @@ public class Cinema {
     public void setLastMessage(String lmsg) {
         this.lastMessage = lmsg;
     }
-
-    // =========================
-    // DEFAULT ADMIN
-    // =========================
-    private void setDefaultAdmin(){
-        Staff adminStaff = new Staff("1", "admin", "Admin User", "1234", "admin@cinema.com", "1234567890");
-        Manager admin = new Manager(adminStaff, 50000.0);
-        staffs.add(admin);
-    }
     
     // Test code
 
     public void seedStaff(){
-        staffs.add(new CashierStaff(
-            "2", "cashier","Cashier User", "1234", "cashier@cinema", "111111"));
-
         
-        staffs.add(new OperatorStaff("3","operator","Operator User",
-        "1234","operator@cinema.com","222222"
-    ));
-}
+    }
 
 public void demoPolymorphism(){
 
