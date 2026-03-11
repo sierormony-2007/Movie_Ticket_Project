@@ -1,25 +1,28 @@
 package user;
 
-public class Staff implements IStaff {
+public abstract class Staff implements IStaff {
     private String staffId;
     private String userName;
     private String password;
     private String fullName;
     private String email;
     private String phone;
+    private float salary;
 
 @Override
 public boolean can(String action) {
     return false;
 }
 
-    public Staff(String staffId, String userName, String fullName, String password, String email, String phone) {
+    public Staff(String staffId, String userName, String fullName, String password, String email, String phone, float salary) {
         setStaffId(staffId);
         setUserName(userName);
         setFullName(fullName);
         setPassword(password);
         setEmail(email);
         setPhone(phone);
+        setSalary(salary);
+
     }
     protected String getpassword() {
         return password;
@@ -44,6 +47,9 @@ public boolean can(String action) {
     }
     public String getPhone() {
         return phone;
+    }
+    public float getSalary(){
+        return salary;
     }
     public boolean checkPassword(String input) {
         return password != null && password.equals(input);
@@ -73,6 +79,13 @@ public boolean can(String action) {
             System.out.println("Invalid email. It cannot be null or empty.");
         }
     }
+
+   public void setSalary(float salary) {
+       if (salary < 0)
+         this.salary = 0;
+    else
+        this.salary = salary;
+}
     public void setPhone(String phone) {
         String p = (phone == null) ? "" : phone.trim();
         // simple validation: only digits, length 8–15

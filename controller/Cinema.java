@@ -4,11 +4,11 @@ import other.Customer;
 import other.Movie;
 import other.Showtime;
 import other.Ticket;
+import user.CashierStaff;
 import user.IStaff;
 import user.Manager;
-import user.Staff;
-import user.CashierStaff;
 import user.OperatorStaff;
+import user.Staff;
 
 public class Cinema {
 
@@ -35,74 +35,27 @@ public class Cinema {
     public static final String CREATE_STAFF = "CREATE_STAFF";
     public static final String MANAGE_STAFF = "MANAGE_STAFF";
 
-    // =========================
     // BASIC INFO
-    // =========================
+
     private String cinemaName;
     private String address;
    
 
-    // =========================
     // DATA STORAGE (ArrayLists)
-    // =========================
+
     private ArrayList<Staff> staffs = new ArrayList<>();
     private ArrayList<Movie> movies = new ArrayList<>();
     private ArrayList<Customer> customers = new ArrayList<>();
     private ArrayList<Showtime> showtimes = new ArrayList<>();
     private ArrayList<Ticket> tickets = new ArrayList<>();
 
-    // =========================
     // LOGIN
-    // =========================
+
     private IStaff loggedInStaff = null;
 
-    // =========================
     // FEEDBACK MESSAGE
-    // =========================
+
     private String lastMessage = "";
-
-
-
-
-
-    // Test code
-
-    public void seedStaff(){
-        staffs.add(new CashierStaff(
-            "2", "cashier","Cashier User", "1234", "cashier@cinema", "111111"));
-
-        
-        staffs.add(new OperatorStaff("3","operator","Operator User",
-        "1234","operator@cinema.com","222222"
-    ));
-
-       staffs.add(new Manager( "1","admin","Admin User",
-        "1234","admin@cinema.com","333333"
-    ));
-}
-
-public void demoPolymorphism(){
-
-    String[] actions = {
-        SELL_TICKET,
-        CREATE_MOVIE,
-        DELETE_MOVIE
-    };
-
-    for(IStaff s : staffs){
-
-        System.out.println("\nStaff: " + s.getUsername());
-
-        for(String action : actions){
-
-            System.out.println(
-                action + " -> " + s.can(action)
-            );
-
-        }
-    }
-}
-
 
 
 
@@ -154,9 +107,44 @@ public void demoPolymorphism(){
     // DEFAULT ADMIN
     // =========================
     private void setDefaultAdmin(){
-        Manager admin = new Manager("1", "admin", "Admin User", "1234", "admin@cinema.com", "1234567890");
+        Staff adminStaff = new Staff("1", "admin", "Admin User", "1234", "admin@cinema.com", "1234567890");
+        Manager admin = new Manager(adminStaff, 50000.0);
         staffs.add(admin);
     }
+    
+    // Test code
+
+    public void seedStaff(){
+        staffs.add(new CashierStaff(
+            "2", "cashier","Cashier User", "1234", "cashier@cinema", "111111"));
+
+        
+        staffs.add(new OperatorStaff("3","operator","Operator User",
+        "1234","operator@cinema.com","222222"
+    ));
+}
+
+public void demoPolymorphism(){
+
+    String[] actions = {
+        SELL_TICKET,
+        CREATE_MOVIE,
+        DELETE_MOVIE
+    };
+
+    for(IStaff staff : staffs){
+
+        System.out.println("\nStaff: " + staff.getUsername());
+
+        for(String action : actions){
+
+            System.out.println(
+                action + " -> " + staff.can(action)
+            );
+
+        }
+    }
+}
 
 
     // =========================

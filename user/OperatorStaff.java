@@ -1,14 +1,12 @@
 package user;
 
 public class OperatorStaff extends Staff {
-    private float salary;
+
 
 
   
-    public OperatorStaff(String staffId, String userName, String fullName,
-                         String password, String email, String phone) {
-
-        super(staffId, userName, fullName, password, email, phone);
+    public OperatorStaff(Staff s) {
+        super(s.getId(), s.getUsername(), s.getFullName(), s.getpassword(), s.getEmail(), s.getPhone(), s.getSalary());
     }
 
     @Override
@@ -23,16 +21,6 @@ public class OperatorStaff extends Staff {
 
         return false;
     }
-    public float getSalary(){
-        return salary;
-    }
-        public void setSalary(float salary){
-        if(salary <200){
-            System.out.println("Invalid salary. It must be at least 200.");
-        } else {
-            this.salary = salary;
-        }
-    }
      @Override
     public boolean equals(Object obj){
         OperatorStaff other = (OperatorStaff) obj;
@@ -44,16 +32,16 @@ public class OperatorStaff extends Staff {
             // if(Float.floatToIntBits(salary != Float.floatToIntBits(other.salary))){
             //     return false;
             // }
-            if(this.salary != other.salary){
-                return false;
-            }
+            if (this.getSalary() != other.getSalary()) {
+            return false;
+}
         }
         return true;
     }
     @Override
     public String toString() {
         return super.toString() + "OperatorStaff{" +
-                "salary=" + salary +
+                "salary=" + getSalary()+
                 '}';
     }
 

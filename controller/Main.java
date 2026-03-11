@@ -8,7 +8,9 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         Cinema cinema = new Cinema("CADT Cinema", "Phnom Penh");
         cinema.seedStaff();       
-        cinema.demoPolymorphism(); 
+        cinema.demoPolymorphism();
+        // Staff s1 = new CashierStaff(
+            // "2", "cashier","Cashier User", "1234", "cashier@cinema", "111111");
 
         int choice;
 

@@ -4,11 +4,9 @@ import controller.Cinema;
 
 public class CashierStaff extends Staff {
 
-    private float salary;
 
-    public CashierStaff(String staffId, String userName, String fullName,
-                        String password, String email, String phone) {
-        super(staffId, userName, fullName, password, email, phone);
+    public CashierStaff(Staff s) {
+        super(s.getId(), s.getUsername(), s.getFullName(), s.getpassword(), s.getEmail(), s.getPhone(), s.getSalary());
     }
 
     @Override
@@ -26,17 +24,6 @@ public class CashierStaff extends Staff {
 
         return false;
     }
-    public float getSalary() {
-        return salary;
-    }
-
-    public void setSalary(float salary){
-        if(salary <150){
-            System.out.println("Invalid salary. It must be at least 150.");
-        } else {
-            this.salary = salary;
-        }
-    }
     @Override
     public boolean equals(Object obj){
         CashierStaff other = (CashierStaff) obj;
@@ -48,7 +35,7 @@ public class CashierStaff extends Staff {
             // if(Float.floatToIntBits(salary != Float.floatToIntBits(other.salary))){
             //     return false;
             // }
-            if(this.salary != other.salary){
+            if(this.getSalary() != getSalary()){
                 return false;
             }
         }
@@ -57,7 +44,7 @@ public class CashierStaff extends Staff {
     @Override
     public String toString() {
         return super.toString() + "CashierStaff{" +
-                "salary=" + salary +
+                "salary=" + getSalary() +
                 '}';
     }
 }
