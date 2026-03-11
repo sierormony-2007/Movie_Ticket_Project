@@ -7,6 +7,8 @@ import other.Ticket;
 import user.IStaff;
 import user.Manager;
 import user.Staff;
+import user.CashierStaff;
+import user.OperatorStaff;
 
 public class Cinema {
 
@@ -15,6 +17,7 @@ public class Cinema {
     // =========================
 
     //Movie actions
+    public static final String CREATE_MOVIE = "CREATE_MOVIE";
     public static final String UPDATE_MOVIE = "UPDATE_MOVIE";
     public static final String DELETE_MOVIE = "DELETE_MOVIE";
     public static final String CHECK_MOVIES = "CHECK_MOVIES";
@@ -58,7 +61,55 @@ public class Cinema {
     // =========================
     private String lastMessage = "";
 
-    // =========================
+
+
+
+
+    // Test code
+
+    public void seedStaff(){
+        staffs.add(new CashierStaff(
+            "2", "cashier","Cashier User", "1234", "cashier@cinema", "111111"));
+
+        
+        staffs.add(new OperatorStaff("3","operator","Operator User",
+        "1234","operator@cinema.com","222222"
+    ));
+
+       staffs.add(new Manager( "1","admin","Admin User",
+        "1234","admin@cinema.com","333333"
+    ));
+}
+
+public void demoPolymorphism(){
+
+    String[] actions = {
+        SELL_TICKET,
+        CREATE_MOVIE,
+        DELETE_MOVIE
+    };
+
+    for(IStaff s : staffs){
+
+        System.out.println("\nStaff: " + s.getUsername());
+
+        for(String action : actions){
+
+            System.out.println(
+                action + " -> " + s.can(action)
+            );
+
+        }
+    }
+}
+
+
+
+
+
+
+
+
     // CONSTRUCTOR
     // =========================
     public Cinema(String cinemaName, String address) {

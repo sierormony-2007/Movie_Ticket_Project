@@ -7,6 +7,8 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
         Cinema cinema = new Cinema("CADT Cinema", "Phnom Penh");
+        cinema.seedStaff();       
+        cinema.demoPolymorphism(); 
 
         int choice;
 

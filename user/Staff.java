@@ -49,15 +49,15 @@ public boolean can(String action) {
         return password != null && password.equals(input);
     }
     public void setStaffId(String staffId) {
-        if (isValidString(staffId)) this.staffId = "UNKNOWN";
+        if (!isValidString(staffId)) this.staffId = "UNKNOWN";
         else this.staffId = staffId.trim();
     }
     public void setUserName(String userName) {
-        if (isValidString(userName)) this.userName = "UNKNOWN";
+        if (!isValidString(userName)) this.userName = "UNKNOWN";
         else this.userName = userName.trim();
     }
     public void setFullName(String fullName) {
-        if (isValidString(fullName)) this.userName = "UNKNOWN";
+        if (!isValidString(fullName)) this.userName = "UNKNOWN";
         else this.fullName = fullName.trim();
     }
     public void setPassword(String password) {
