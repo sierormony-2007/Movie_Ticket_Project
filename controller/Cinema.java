@@ -116,6 +116,33 @@ public void seedStaff() {
     staffs.add(OS);
 }
 
+//Anonymous_class
+public void showActiveStaffsAnonymous() {
+
+    Staff.StaffFilter activeFilter = new Staff.StaffFilter() {
+        public boolean filter(Staff staff) {
+            return staff.isActive();
+        }
+    };
+
+    for (Staff s : staffs) {
+        if (activeFilter.filter(s)) {
+            System.out.println(s);
+        }
+    }
+}
+//lamda expression
+public void showActiveStaffs() {
+    Staff.StaffFilter activeFilter = (staff) -> staff.isActive();
+
+    for (Staff s : staffs) {
+        if (activeFilter.filter(s)) {
+            System.out.println(s);
+        }
+    }
+}
+
+
 public void demoPolymorphism(){
 
     // String[] actions = {

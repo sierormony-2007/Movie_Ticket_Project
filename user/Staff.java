@@ -30,7 +30,7 @@ public abstract boolean can(String action);
 
   @Override
     public boolean isActive() {
-        return true;
+        return active;
     }
   @Override
     public String getId() {
@@ -130,4 +130,10 @@ public abstract boolean can(String action);
         Staff other = (Staff) obj;
         return staffId.equals(other.staffId);
     }
+    @FunctionalInterface
+    public interface StaffFilter {
+        boolean filter(Staff staff);
+    
+    }
+
 }
