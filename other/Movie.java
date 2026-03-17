@@ -25,6 +25,18 @@ public class Movie{
     }
    
 
+    public void setDuration(double duration) {
+        this.duration = duration;
+    }
+
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
     public String getTitle() {
         return title;
     }

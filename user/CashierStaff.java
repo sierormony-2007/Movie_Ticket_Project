@@ -1,12 +1,12 @@
 package user;
 
-import controller.Cinema;
-
 public class CashierStaff extends Staff {
+    private String shift;
 
 
-    public CashierStaff(Staff s) {
-        super(s.getId(), s.getUsername(), s.getFullName(), s.getpassword(), s.getEmail(), s.getPhone(), s.getSalary());
+    public CashierStaff(String staffId, String userName, String fullName,String password, String email, String phone, double salary, String shift) {
+        super(staffId, userName, fullName, password, email, phone, salary);    
+        this.shift = shift;
     }
 
     @Override
@@ -17,12 +17,18 @@ public class CashierStaff extends Staff {
             action.equals("CHECK_TICKET") ||
             action.equals("CREATE_CUSTOMER") ||
             action.equals("HANDLE_TICKET_ISSUE") ||
-            action.equals("CHECK_MOVIES")) {
+            action.equals("CHECK_MOVIES"))
 
             return true;
-        }
 
         return false;
+    }
+
+    public String getShift(){
+        return shift;
+    }
+    public void setShift(String shift){
+        this.shift = shift;
     }
     @Override
     public boolean equals(Object obj){

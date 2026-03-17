@@ -8,11 +8,12 @@ public abstract class Staff implements IStaff {
     private String email;
     private String phone;
     private double salary;
+    private boolean active;
 
 @Override
 public abstract boolean can(String action);
 
-    public Staff(String staffId, String userName, String fullName, String password, String email, String phone, double salary) {
+    public Staff(String staffId, String userName, String fullName,String password,  String email, String phone, double salary) {
         setStaffId(staffId);
         setUserName(userName);
         setFullName(fullName);
@@ -20,6 +21,7 @@ public abstract boolean can(String action);
         setEmail(email);
         setPhone(phone);
         setSalary(salary);
+        this.active= true;
 
     }
     protected String getpassword() {

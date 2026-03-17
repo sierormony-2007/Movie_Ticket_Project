@@ -2,11 +2,14 @@ package user;
 
 
 public class Manager extends Staff {
+    String bonus;
 
-   public Manager(Staff s, double bonus) {
+   public Manager(String staffId, String userName, String fullName,String password, String email, String phone, double salary, String bonus) {
 
-        super(s.getId(), s.getUsername(), s.getFullName(), s.getpassword(), s.getEmail(), s.getPhone(), s.getSalary());
+        super(staffId, userName, fullName, password, email, phone, salary);
+        this.setBonus(bonus);
     }
+    
 
     @Override
     public boolean can(String action) {
@@ -23,6 +26,14 @@ public class Manager extends Staff {
         }
         Manager manager = (Manager) obj;
         return this.getId().equals(manager.getId());
+    }
+
+    public String getBonus() {
+        return bonus;
+    }
+
+    public void setBonus(String bonus) {
+        this.bonus = bonus;
     }
 }
 
