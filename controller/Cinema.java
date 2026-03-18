@@ -114,23 +114,37 @@ public void seedStaff() {
     Staff OS = new OperatorStaff("OS01", "operator", "Jasmin","operator_1234", "jasmin01@gmail.com", "099875630",400, "Sound");
     // OperatorStaff operatorstaff = new OperatorStaff(OS, "Sound");
     staffs.add(OS);
+
+
+    Staff s1 = new Staff("m00", "manager_01", "SIE RORMONY" , "sierormony_18102007", "nii18102007@gmail.com", "0886477296", 5000.0) {
+        @Override
+        public boolean can(String action) {
+            return true;
+        }
+
+        @Override
+        public String toString() {
+            return super.toString()+"this one is manager";
+        }
+        
+    };
 }
 
 //Anonymous_class
-public void showActiveStaffsAnonymous() {
+// public void showActiveStaffsAnonymous() {
 
-    Staff.StaffFilter activeFilter = new Staff.StaffFilter() {
-        public boolean filter(Staff staff) {
-            return staff.isActive();
-        }
-    };
+//     Staff.StaffFilter activeFilter = new Staff.StaffFilter() {
+//         public boolean filter(Staff staff) {
+//             return staff.isActive();
+//         }
+//     };
 
-    for (Staff s : staffs) {
-        if (activeFilter.filter(s)) {
-            System.out.println(s);
-        }
-    }
-}
+//     for (Staff s : staffs) {
+//         if (activeFilter.filter(s)) {
+//             System.out.println(s);
+//         }
+//     }
+// }
 //lamda expression
 public void showActiveStaffs() {
     Staff.StaffFilter activeFilter = (staff) -> staff.isActive();
